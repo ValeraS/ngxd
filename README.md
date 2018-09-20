@@ -27,6 +27,7 @@ Use like ```NgComponentOutlet``` but with ```@Input/@Output``` auto bindings:
 
 There are several modes of operation of the directive.
 
+### Through The Parent Component
 A simple variant of binding through the parent component.
 ```typescript
 @Component({
@@ -41,6 +42,7 @@ class DynamicComponent {
 }
 ```
 
+### Through The Context
 Additionally there is autobinding through the context. This is useful when you need to display something through *ngFor. Context has a higher priority than the inputs in the component.
 ```html
 <ng-container *ngFor=“let color of colors”
@@ -52,6 +54,7 @@ Additionally there is autobinding through the context. This is useful when you n
 </ng-container>
 ```
 
+### Pipe For Selecting The Component
 For ease of selecting the required component, there is ResolvePipe, which expects NgxdResolver to enter, and returns the required component.
 ```html
 <ng-container *ngxComponentOutlet="
@@ -59,6 +62,7 @@ For ease of selecting the required component, there is ResolvePipe, which expect
 ”></ng-container>
 ```
 
+### Through The Host Component (deprecated)
 Through the host component, when the inputs and outputs are initialized explicitly. This option is difficult to use and deprecated.
 ```html
 <!-- host component -->
